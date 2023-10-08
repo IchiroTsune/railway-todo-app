@@ -1,15 +1,40 @@
 @charset "utf-8";
 
+$tab: 768px; // タブレット
+$sp: 375px;  // スマホ
+
+
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+
+
 .signup {
   width: 500px;
   margin: 0 auto;
+
+  @include sp {
+    width:280px;
+  }
+
+
 }
 .signup-form {
   margin: 25px 0;
   color: #555555;
 }
 
-.email-input, .name-input, .password-input {
+.email-input,
+.name-input,
+.password-input {
   width: 100%;
   font-size: large;
   height: 30px;
@@ -17,7 +42,7 @@
 }
 
 .signup-button {
-  background-color: #242F9B;
+  background-color: #242f9b;
   color: #ffffff;
   width: 100px;
   height: 40px;

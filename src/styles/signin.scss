@@ -1,19 +1,43 @@
 @charset "utf-8";
 
+$tab: 768px; // タブレット
+$sp: 375px;  // スマホ
+
+
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
 .signin {
   width: 500px;
   margin: 0 auto;
+
+  @include sp {
+
+    width: 280px;
+
+  }
+
 }
 
 .signin-form {
   margin: 25px 0;
 }
 
-.email-label, .password-label {
+.email-label,
+.password-label {
   color: #555555;
 }
 
-.email-input, .password-input {
+.email-input,
+.password-input {
   width: 100%;
   font-size: large;
   height: 30px;
@@ -21,7 +45,7 @@
 }
 
 .signin-button {
-  background-color: #242F9B;
+  background-color: #242f9b;
   color: #ffffff;
   width: 100px;
   height: 40px;
